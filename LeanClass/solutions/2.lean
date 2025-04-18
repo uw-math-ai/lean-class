@@ -8,7 +8,11 @@ variable (P Q R : Prop)
 
 --Problem 1
 example (a b : ℝ) (h : a ≤ b) : log (1 + exp a) ≤ log (1 + exp b) := by
-  sorry
+  apply log_le_log
+  positivity
+  apply add_le_add
+  rfl
+  exact exp_le_exp.2 h
 
 --Problem 2:
 /-This following definition is "min" in mathlib, but we will
@@ -16,8 +20,11 @@ give our own definition-/
 def my_min (a b : ℕ) : ℕ :=
   if a < b then a else b
 example : my_min a b = my_min b a := by
-  sorry
-
+    unfold my_min
+    by_cases h : a<b
+    simp [h]
+    sorry
+    sorry
 
 --Problem 3: this is min_assoc in mathlib
 example : my_min (my_min a b) c = my_min a (my_min b c) := by
