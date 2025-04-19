@@ -46,7 +46,7 @@ example : |a| - |b| ≤ |a - b| := by
 
 --Problem 7:
 example : P ∨ Q → (P → R) → (Q → R) → R := by
-  sorry
+  search_proof
 
 
 --Problem 8: the limit of the 0 sequence is 0
